@@ -22,6 +22,8 @@ data/
 *.sqlite
 *.sqlite3
 
+scrape/
+
 # Keep folder structure without the files
 !data/raw/.gitkeep
 !data/processed/.gitkeep
