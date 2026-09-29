@@ -135,7 +135,9 @@ def clean_sim(df):
 
     df['IR_Blaster'] = df['Sim'].str.strip().str.contains('IR Blaster')
     df['IR_Blaster'] = np.where(df['IR_Blaster'], 1, np.nan)
-
+    
+    # later detected that two columns had the same name due to which load operation was not able to proceed
+    df = df.rename(columns={'Sim':'sim_original'})
     return df
 
 def clean_processor(df):
@@ -281,7 +283,7 @@ def transform():
     df = clean_display(df)
     df = clean_camera(df)
     df = clean_card_and_os(df)
-
+    df = df.rename(columns={'Sim':'sim_original'})
     # Save
     output_path = DATA_DIR / "processed" / "smartphones_cleaned.csv"
     output_path.parent.mkdir(parents=True, exist_ok=True)
