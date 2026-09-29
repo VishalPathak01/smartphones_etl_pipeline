@@ -16,7 +16,7 @@ conn = mysql.connector.connect(
 )
 
 # Extract raw dataset from server
-df = pd.read_sql_query("SELECT * FROM smartphones_raw", conn)
+df = pd.read_sql_query("SELECT * FROM smartphones_raw", conn) # type:ignore 
 conn.close()
 
 # Save desired path 
