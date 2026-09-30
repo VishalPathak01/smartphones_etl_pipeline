@@ -224,6 +224,8 @@ def clean_display(df):
     df["display_design"] = (
         df["Display"].str.split("px").str[1].str.strip().str.split("with").str[1]
     )
+    df['isFoldable'] = np.where(df['Camera'].str.lower().str.contains("foldable"), 1, np.nan)
+    df['isDualDisplay'] = np.where(df['Camera'].str.contains("Dual Display"), 1, np.nan)
     return df
 
 def clean_camera(df):
@@ -250,9 +252,6 @@ def clean_camera(df):
         df["Camera"].str.contains("Dual Front"), 1, 0
     )
     df[["rear_total_mp", "front_total_mp"]] = df["Camera"].apply(calculate_total_mp)
-
-    df["isFoldable"] = np.where(df["Camera"].str.lower().str.contains("foldable"), 1, np.nan)
-    df["isDualDisplay"] = np.where(df["Camera"].str.contains("Dual Display"), 1, np.nan)
     return df
 
 def clean_card_and_os(df):
