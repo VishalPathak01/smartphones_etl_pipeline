@@ -14,8 +14,8 @@ config/secrets.py
 # (One-time scrape but still, don't bloat the repo)
 data/
 !data/.gitkeep
-*.csv
 !data/processed/smartphones_cleaned.csv
+*.csv
 *.json
 *.parquet
 *.xlsx
