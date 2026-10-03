@@ -32,7 +32,9 @@ def extract():
     output_path = raw_dir / "smartphones.csv"
     df.to_csv(output_path, index=False)
 
-    print(f"✓ Extracted {len(df)} rows → {output_path}")
+    print(f"Extracted {len(df)} rows to {output_path}")
+    print('Sample of data: ')
+    print(df.head(5))
 
 
 if __name__ == "__main__":
