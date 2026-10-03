@@ -12,9 +12,15 @@ config/secrets.py
 
 # DATA — raw and processed datasets
 # (One-time scrape but still, don't bloat the repo)
-data/
+data/*
 !data/.gitkeep
-!data/processed/smartphones_cleaned.csv
+!data/raw/
+data/raw/*
+!data/raw/.gitkeep
+!data/processed/
+data/processed/*
+!data/processed/.gitkeep
+
 *.csv
 *.json
 *.parquet
@@ -25,10 +31,8 @@ data/
 
 scrape/
 
-# Keep folder structure without the files
-!data/raw/.gitkeep
-!data/processed/.gitkeep
-
+# Exceptions — these must stay BELOW the *.csv rule
+!data/processed/smartphones_cleaned.csv
 
 # JUPYTER NOTEBOOKS
 .ipynb_checkpoints/
