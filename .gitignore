@@ -15,6 +15,7 @@ config/secrets.py
 data/
 !data/.gitkeep
 *.csv
+!data/processed/smartphones_cleaned.csv
 *.json
 *.parquet
 *.xlsx
