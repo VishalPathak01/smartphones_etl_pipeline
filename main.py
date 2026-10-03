@@ -15,7 +15,7 @@ def main():
     try:
         validate_config()
         for stage_name, script_path in PIPELINE_STAGES:
-            print(f"\n{stage_name} >-------> ", flush=True, end='    ')
+            print(f"\n{stage_name} ----- ", flush=True, end='  ')
             subprocess.run(
                 [sys.executable, str(script_path)],
                 cwd=PROJECT_ROOT,
