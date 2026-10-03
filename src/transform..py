@@ -248,9 +248,9 @@ def clean_camera(df):
         df[df["Camera"].str.contains("Front")]["Camera"]
         .str.split("& ").str[1].str.split(" ").str[0]
     )
-    df["front_camera_count"] = np.where(
-        df["Camera"].str.contains("Dual Front"), 1, 0
-    )
+    df['front_camera_count'] = np.where(df['Camera'].str.contains('Front'), 1, 0)
+    mask = df['Camera'].str.contains('Dual Front')
+    df.loc[mask, 'front_camera_count'] += 1
     df[["rear_total_mp", "front_total_mp"]] = df["Camera"].apply(calculate_total_mp)
     return df
 
