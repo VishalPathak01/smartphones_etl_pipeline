@@ -13,13 +13,6 @@ config/secrets.py
 # DATA — raw and processed datasets
 # (One-time scrape but still, don't bloat the repo)
 data/*
-!data/.gitkeep
-!data/raw/
-data/raw/*
-!data/raw/.gitkeep
-!data/processed/
-data/processed/*
-!data/processed/.gitkeep
 
 *.csv
 *.json
